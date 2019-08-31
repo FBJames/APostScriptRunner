@@ -1,4 +1,4 @@
-# APost Script Runner README
+# APost Script Runner
 
 This extension is script Runner for APost.
 
