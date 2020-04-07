@@ -37,8 +37,8 @@ function GetAPostDirectory()
 	const fs = require("fs"); // Or `import fs from "fs";` with ESM
 	
 	var path = require("path");
-	var config = vscode.workspace.getConfiguration('APostScriptRunner');
-	var apostPath = config.get('APostPath') as string;
+	var config = vscode.workspace.getConfiguration('RecurDynPostScriptRunner');
+	var apostPath = config.get('RecurDynPostPath') as string;
 
 	var apostDir ='';
 	if (fs.existsSync(apostPath)) 
@@ -50,10 +50,10 @@ function GetAPostDirectory()
 		apostDir = 'D:/SVNSOURCE/VeniceGUI/Post/Binary/Debug';		
 	}
 	//scriptRunner = scriptRunner + "CsiApost.exe"
-	var apostscriptRunner = path.join(apostDir, "CsiApost.exe");
+	var apostscriptRunner = path.join(apostDir, "Tools/CsiPost.exe");
 	if (!fs.existsSync(apostscriptRunner)) 
 	{
-		vscode.window.showErrorMessage('Could not find CsiApost.exe, please check the config. [APostScriptRunner.APostPath]');
+		vscode.window.showErrorMessage('Could not find CsiPost.exe, please check the config. [RecurDynPostScriptRunner.RecurDynPostPath]');
 	}
 	return apostscriptRunner;
 }
@@ -82,7 +82,7 @@ function RunScriptAsFile()
 	
 	var command1 = `Output.WriteInfo(@"${currentlyOpenTabfilePath} will be executed from VSCODE","VSCODE")`;
 	var command2 = currentlyOpenTabfilePath;
-	spawn(scriptRunner, ['/s', command1]);
+	//spawn(scriptRunner, ['/s', command1]);
 	spawn(scriptRunner, [command2]);	
 }
 
@@ -100,11 +100,11 @@ function SetInitializeToCSXFile()
 	var apostPath = config.get('APostPath') as string;
 	if (!fs.existsSync(apostPath))
 	{
-		apostPath = 'C:/Program Files/FunctionBay, Inc/Standalone Post V0R2'; // Default installation folder
+		apostPath = 'C:/Program Files/FunctionBay, Inc/RecurDyn V9R4/Bin/Post'; // Default installation folder
 	}
 	if (!fs.existsSync(apostPath))
 	{
-		vscode.window.showWarningMessage('The Standealone Post installation folder could not be found: ' + apostPath);
+		vscode.window.showWarningMessage('The RecurDyn Post installation folder could not be found: ' + apostPath);
 	}	
 
 	var szInitializeCSX = path.join(apostPath, "ScriptEditor/VSCODE/Initialize.csx");

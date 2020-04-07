@@ -4,10 +4,10 @@
         "url": "https://github.com/FBJames/APostScriptRunner"
       },
     "publisher": "FunctionBay",
-    "name": "apostscriptrunner",
-    "displayName": "APostScriptRunner",
-    "description": "C# Script file runner to Stand Alone Post",
-    "version": "0.0.1",    
+    "name": "recurdynpostscriptrunner",
+    "displayName": "RecurDyn Post Script Runner",
+    "description": "C# Script file runner to RecurDyn Post",
+    "version": "1.0.0",    
     "icon": "images/apostscriptrunner.png",
     "engines": {
         "vscode": "^1.35.0"
@@ -24,7 +24,7 @@
         "commands": [
             {
                 "command": "extension.RunScriptFile",
-                "title": "Run Script file to APost"
+                "title": "Run Script file to RecurDyn Post"
             },
             {
                 "command": "extension.InputInitializeCode",
@@ -36,23 +36,23 @@
                 {
                     "command": "extension.InputInitializeCode",
                     "alt": "extension.SetInitializeToCSXFile",
-                    "group": "APost Script"
+                    "group": "RecurDyn Post Script"
                 },
                 {
                     "command": "extension.RunScriptFile",
                     "alt": "extension.RunScriptFile",
-                    "group": "APost Script"
+                    "group": "RecurDyn Post Script"
                 }
             ]
         },
         "configuration": {
             "type": "object",
-            "title": "APost Script Runner Configuration",
+            "title": "RecurDyn Post Script Runner Configuration",
             "properties": {
-                "APostScriptRunner.APostPath": {
+                "recurdynpostscriptrunner.RecurDynPostPath": {
                     "type": "string",
-                    "default": "C:/Program Files/FunctionBay, Inc/Standalone Post V0R3",
-                    "description": "Set Stand Alone Post installation folder"
+                    "default": "C:/Program Files/FunctionBay, Inc/RecurDyn V9R4/Bin/Post",
+                    "description": "Set RecurDyn Post installation folder"
                 }
             }
         }
